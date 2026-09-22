@@ -1,2 +1,2 @@
-// Las interacciones del mapa quedan pendientes para una siguiente etapa.
-// Por ahora el histórico se compone únicamente con las tres capas gráficas entregadas.
+// Las interacciones del mapa estan pendientes.
+// El histórico se compone únicamente de las tres capas gráficas.

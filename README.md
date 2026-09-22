@@ -71,11 +71,4 @@ La sección final incluye enlaces sobre los cuadros de nombre de las protagonist
 Actualmente:
 
 - Natalia González, Yessica Espinosa y Dewadhy Zuliem Melo enlazan a sus notas correspondientes.
-- Alberto Ortiz y Gundiralbo Morales utilizan temporalmente `https://www.google.com/` mientras se definen sus URLs finales.
-
-## Consideraciones
-
-- Los recursos utilizados por la página se concentran en la carpeta `assets/`.
-- La implementación evita dependencias y frameworks innecesarios para mantener el código simple, legible y fácil de mantener.
-- Se utilizan etiquetas semánticas, textos alternativos en imágenes y atributos `aria` en los elementos interactivos principales.
-- Los enlaces externos que abren una nueva pestaña incluyen `rel="noopener noreferrer"`.
+- Alberto Ortiz y Gundiralbo Morales utilizan temporalmente `https://www.google.com/` mientras se definen sus URLs finales. (`rel="noopener noreferrer"`).
