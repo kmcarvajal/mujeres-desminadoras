@@ -207,10 +207,10 @@ select {
   font-family: var(--unnamed-font-family-vesterbro-var);
   font-style: var(--unnamed-font-style-normal);
   font-weight: var(--unnamed-font-weight-300);
-  font-size: var(--unnamed-font-size-24);
+  font-size: var(--unnamed-font-size-21);
   line-height: var(--unnamed-line-spacing-32);
   letter-spacing: var(--unnamed-character-spacing-0);
-  color: var(--unnamed-color-261b09);
+  color: var(--unnamed-color-5a4726);
 }
 
 .article-lead {
@@ -243,9 +243,9 @@ select {
 
 .article-author::before {
   content: "";
-  width: 52px;
-  height: 5px;
-  background: linear-gradient(90deg, var(--unnamed-color-594c24) 0 50%, rgba(89, 76, 36, 0.18) 50% 100%);
+  width: 60px;
+  height: 10px;
+  background: transparent linear-gradient(270deg, #594C2400 0%, #A69D82 100%, #120F07 100%) 0% 0% no-repeat padding-box;
 }
 
 .article-heading,
@@ -571,6 +571,15 @@ select {
     min-height: 320px;
     padding-bottom: 90px;
   }
+}
+
+h1#intro-title {
+    width: 120%;
+    margin-left: -10%;
+}
+
+strong {
+  font-weight: 550;
 }
 
 @media (prefers-reduced-motion: reduce) {
