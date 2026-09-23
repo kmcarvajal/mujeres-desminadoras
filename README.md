@@ -20,6 +20,10 @@ El proyecto fue desarrollado a partir del diseño suministrado en Adobe XD, cons
 .
 ├── index.html
 ├── assets/
+│   ├── social/
+│   │   ├── facebook.svg
+│   │   ├── twitter.svg
+│   │   └── whatsapp.svg
 │   ├── banner-inicio.webp
 │   ├── Grafico1_fondo-D.png
 │   ├── Grafico1_Mapa-D.png
@@ -46,9 +50,7 @@ El histórico de víctimas de minas antipersonal se compone actualmente mediante
 
 1. `Grafico1_fondo-D.png`: base general del gráfico.
 2. `Grafico1_Mapa-D.png`: mapa de Colombia por departamentos.
-3. `Grafico1_cifras-D.png`: cifras de víctimas por departamento.
-
-Por el momento el mapa se mantiene estático. El archivo `js/main.js` queda disponible para incorporar posteriormente interacciones adicionales sin modificar la estructura principal del proyecto.
+3. `Grafico1_cifras-D.png`: cifras de víctimas por departamento. (aparece al dar click sobre la capa #2.)
 
 Las visualizaciones **Víctimas civiles y fuerza pública** y **Víctimas civiles por género** se integran desde Flourish mediante `iframe`.
 
