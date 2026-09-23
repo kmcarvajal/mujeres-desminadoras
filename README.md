@@ -33,7 +33,8 @@ El proyecto fue desarrollado a partir del diseño suministrado en Adobe XD, cons
 │   ├── yessica-espinosa.webp
 │   ├── dewadhy-zuliem-melo.webp
 │   ├── alberto-ortiz.webp
-│   └── gundiralbo-morales.webp
+│   ├── gundiralbo-morales.webp
+│   └── VictimasDeptoCurvas.svg
 ├── css/
 │   └── styles.css
 ├── js/
