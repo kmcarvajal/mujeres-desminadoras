@@ -345,9 +345,7 @@ select {
   height: 100%;
 }
 
-/* ==========================================================
-   CAPA SVG INTERACTIVA
-   ========================================================== */
+/* CAPA SVG INTERACTIVA */
 
 .map-stage__svg-layer {
   position: absolute;
@@ -408,6 +406,24 @@ select {
 .map-stage__svg-layer .departamento-click:focus-visible ellipse {
   stroke: #755449;
   stroke-width: 1.5px;
+}
+
+/* NÚMEROS DE VÍCTIMAS POR DEPARTAMENTO */
+
+.numero-departamento {
+  font-family: Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+
+  fill: #efe7c2;
+
+  stroke: #755449;
+  stroke-width: 1px;
+  paint-order: stroke fill;
+
+  pointer-events: none;
+
+  vector-effect: non-scaling-stroke;
 }
 
 .flourish-section {

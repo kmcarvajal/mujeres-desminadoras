@@ -1,25 +1,4 @@
 
-// Redes sociales
-const pagina = document.querySelector('.site-main');
-
-if (pagina) {
-  const url = encodeURIComponent(
-    pagina.dataset.shareUrl || location.href
-  );
-
-  const enlaces = {
-    facebook: `https://www.facebook.com/sharer/sharer.php?u=${url}`,
-    twitter: `https://twitter.com/intent/tweet?url=${url}`,
-    whatsapp: `https://wa.me/?text=${url}`
-  };
-
-  pagina.querySelectorAll('[data-red]').forEach(link => {
-    link.href = enlaces[link.dataset.red];
-    link.target = '_blank';
-    link.rel = 'noopener noreferrer';
-  });
-}
-
 // Interacciones del mapa.
 /*
 const mapa = document.getElementById("map-stage");
@@ -37,9 +16,7 @@ mapa.addEventListener("click", function () {
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  // =========================================================
   // REDES SOCIALES
-  // =========================================================
 
   const pagina = document.querySelector(".site-main");
 
@@ -72,14 +49,10 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-  // =========================================================
   // MAPA INTERACTIVO
-  // =========================================================
 
 
-  // =========================================================
   // DATOS DE VÍCTIMAS POR DEPARTAMENTO
-  // =========================================================
 
   const datosDepartamentos = {
 
@@ -120,8 +93,57 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   // =========================================================
-  // NOMBRES DE LOS DEPARTAMENTOS
+  // POSICIÓN MANUAL DE LOS NÚMEROS
+  //
+  // x positivo  = derecha
+  // x negativo  = izquierda
+  //
+  // y positivo  = abajo
+  // y negativo  = arriba
+  //
+  // Con x: 0, y: 0 se conserva la posición automática
+  // que tenía actualmente cada número.
   // =========================================================
+
+  const posicionesNumeros = {
+
+    TOL: { x: 0, y: 0 },
+    CUN: { x: 0, y: 0 },
+    VDC: { x: 0, y: 0 },
+    ANT: { x: 0, y: 0 },
+    ARA: { x: 0, y: 0 },
+    ATL: { x: 0, y: 0 },
+    BOL: { x: 0, y: 0 },
+    BOY: { x: 0, y: 0 },
+    CAL: { x: 0, y: 0 },
+    CAQ: { x: 0, y: 0 },
+    CAS: { x: 0, y: 0 },
+    CAU: { x: 0, y: 0 },
+    NAR: { x: 0, y: 0 },
+    NDS: { x: 0, y: 0 },
+    SAN: { x: 0, y: 0 },
+    PUT: { x: 0, y: 0 },
+    QUI: { x: 0, y: 0 },
+    SUC: { x: 0, y: 0 },
+    VAU: { x: 0, y: 0 },
+    AMA: { x: 0, y: 0 },
+    VIC: { x: 0, y: 0 },
+    CES: { x: 0, y: 0 },
+    CHO: { x: 0, y: 0 },
+    COR: { x: 0, y: 0 },
+    GUI: { x: 0, y: 0 },
+    GUV: { x: 0, y: 0 },
+    HUI: { x: 0, y: 0 },
+    GUA: { x: 0, y: 0 },
+    MAG: { x: 0, y: 0 },
+    MET: { x: 0, y: 0 },
+    RIS: { x: 0, y: 0 },
+    BOG: { x: 0, y: 0 }
+
+  };
+
+
+  // NOMBRES DE LOS DEPARTAMENTOS
 
   const nombresDepartamentos = {
 
@@ -161,9 +183,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
 
-  // =========================================================
   // CONTENEDOR DEL SVG
-  // =========================================================
 
   const contenedorMapa =
     document.getElementById("map-svg-layer");
@@ -180,17 +200,13 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-  // =========================================================
   // NAMESPACE SVG
-  // =========================================================
 
   const namespaceSVG =
     "http://www.w3.org/2000/svg";
 
 
-  // =========================================================
   // CARGAR SVG
-  // =========================================================
 
   fetch("assets/VictimasDeptoCurvas.svg")
 
@@ -212,9 +228,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(svgTexto => {
 
 
-      // =====================================================
       // CONVERTIR ARCHIVO SVG A DOCUMENTO
-      // =====================================================
 
       const parser =
         new DOMParser();
@@ -227,9 +241,7 @@ document.addEventListener("DOMContentLoaded", () => {
         );
 
 
-      // =====================================================
       // COMPROBAR QUE EL SVG SEA VÁLIDO
-      // =====================================================
 
       const errorParser =
         documentoSVG.querySelector("parsererror");
@@ -244,9 +256,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
 
-      // =====================================================
       // CAPA ORIGINAL DE LOS DEPARTAMENTOS
-      // =====================================================
 
       const layerDepartamentos =
         documentoSVG.querySelector("#Layer_5");
@@ -261,9 +271,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
 
-      // =====================================================
       // CREAR SVG NUEVO
-      // =====================================================
 
       const svgMapa =
         document.createElementNS(
@@ -290,12 +298,10 @@ document.addEventListener("DOMContentLoaded", () => {
       );
 
 
-      // =====================================================
       // CAPA DE DEPARTAMENTOS
       //
       // Las figuras son transparentes,
       // pero detectan el clic.
-      // =====================================================
 
       const capaDepartamentos =
         document.createElementNS(
@@ -315,9 +321,7 @@ document.addEventListener("DOMContentLoaded", () => {
       );
 
 
-      // =====================================================
       // COPIAR LOS DEPARTAMENTOS
-      // =====================================================
 
       Object.keys(datosDepartamentos)
         .forEach(idDepartamento => {
@@ -353,9 +357,7 @@ document.addEventListener("DOMContentLoaded", () => {
           );
 
 
-          // =================================================
           // FIGURAS QUE FORMAN EL DEPARTAMENTO
-          // =================================================
 
           const figuras =
             departamento.querySelectorAll(
@@ -432,9 +434,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
 
-      // =====================================================
       // CAPA PARA LOS NÚMEROS
-      // =====================================================
 
       const capaNumeros =
         document.createElementNS(
@@ -454,9 +454,7 @@ document.addEventListener("DOMContentLoaded", () => {
       );
 
 
-      // =====================================================
       // INSERTAR SVG
-      // =====================================================
 
       contenedorMapa.innerHTML = "";
 
@@ -466,9 +464,7 @@ document.addEventListener("DOMContentLoaded", () => {
       );
 
 
-      // =====================================================
       // AJUSTAR VIEWBOX AL MAPA
-      // =====================================================
 
       const cajaMapa =
         capaDepartamentos.getBBox();
@@ -480,9 +476,7 @@ document.addEventListener("DOMContentLoaded", () => {
       );
 
 
-      // =====================================================
       // OBTENER DEPARTAMENTOS
-      // =====================================================
 
       const departamentos =
         Array.from(
@@ -497,9 +491,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
 
-      // =====================================================
       // CONFIGURAR INTERACCIONES
-      // =====================================================
 
       departamentos.forEach(
         departamento => {
@@ -514,9 +506,7 @@ document.addEventListener("DOMContentLoaded", () => {
             || idDepartamento;
 
 
-          // =================================================
           // ACCESIBILIDAD
-          // =================================================
 
           departamento.setAttribute(
             "role",
@@ -536,9 +526,7 @@ document.addEventListener("DOMContentLoaded", () => {
           );
 
 
-          // =================================================
           // CLIC
-          // =================================================
 
           departamento.addEventListener(
             "click",
@@ -554,9 +542,7 @@ document.addEventListener("DOMContentLoaded", () => {
           );
 
 
-          // =================================================
           // TECLADO
-          // =================================================
 
           departamento.addEventListener(
             "keydown",
@@ -593,9 +579,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 
 
-    // =======================================================
     // ERROR
-    // =======================================================
 
     .catch(error => {
 
@@ -608,9 +592,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-  // =========================================================
   // FUNCIÓN MOSTRAR / OCULTAR NÚMERO
-  // =========================================================
 
   function alternarNumero(
     departamento,
@@ -629,10 +611,8 @@ document.addEventListener("DOMContentLoaded", () => {
       );
 
 
-    // =======================================================
     // SI YA ESTÁ ACTIVO:
     // QUITAR NÚMERO Y CONTORNO
-    // =======================================================
 
     if (numeroExistente) {
 
@@ -661,61 +641,57 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    // =======================================================
     // ACTIVAR CONTORNO DEL DEPARTAMENTO
-    // =======================================================
 
     departamento.classList.add(
       "departamento-activo"
     );
 
 
-    // =======================================================
-    // CALCULAR POSICIÓN
-    // =======================================================
+    // POSICIÓN BASE DEL NÚMERO
 
     const caja =
       departamento.getBBox();
 
 
-    const centroX =
-      caja.x + (caja.width / 2);
+    const posicion =
+      posicionesNumeros[idDepartamento]
+      || { x: 0, y: 0 };
 
 
-    const centroY =
-      caja.y + (caja.height * 0.42);
+    /*
+      La posición base sigue siendo calculada a partir
+      del departamento.
+
+      Después se aplica el movimiento manual x / y.
+    */
+
+    const posicionX =
+      caja.x +
+      (caja.width / 2) +
+      posicion.x;
 
 
-    // =======================================================
-    // TAMAÑO DEL NÚMERO
-    // =======================================================
-
-    let tamanoFuente =
-      Math.min(
-        caja.width * 0.30,
-        caja.height * 0.25
-      );
+    const posicionY =
+      caja.y +
+      (caja.height * 0.42) +
+      posicion.y;
 
 
-    if (tamanoFuente < 16) {
-      tamanoFuente = 16;
-    }
-
-
-    if (tamanoFuente > 30) {
-      tamanoFuente = 30;
-    }
-
-
-    // =======================================================
     // CREAR TEXTO
-    // =======================================================
 
     const texto =
       document.createElementNS(
         namespaceSVG,
         "text"
       );
+
+
+    // Clase para controlar fuente, tamaño, color, etc. desde CSS
+
+    texto.classList.add(
+      "numero-departamento"
+    );
 
 
     texto.setAttribute(
@@ -726,13 +702,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     texto.setAttribute(
       "x",
-      centroX
+      posicionX
     );
 
 
     texto.setAttribute(
       "y",
-      centroY
+      posicionY
     );
 
 
@@ -748,51 +724,10 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
 
-    texto.setAttribute(
-      "font-size",
-      tamanoFuente
-    );
-
-
-    texto.setAttribute(
-      "font-weight",
-      "700"
-    );
-
-
-    texto.setAttribute(
-      "font-family",
-      "Arial, sans-serif"
-    );
-
-
-    // Color interno del número
-
-    texto.setAttribute(
-      "fill",
-      "#efe7c2"
-    );
-
-
-    // Borde del número
-
-    texto.setAttribute(
-      "stroke",
-      "#755449"
-    );
-
-
-    texto.setAttribute(
-      "stroke-width",
-      "1"
-    );
-
-
-    texto.setAttribute(
-      "paint-order",
-      "stroke fill"
-    );
-
+    /*
+      Evita que el grosor del borde del número
+      cambie al escalar el SVG.
+    */
 
     texto.setAttribute(
       "vector-effect",
@@ -806,9 +741,7 @@ document.addEventListener("DOMContentLoaded", () => {
       "none";
 
 
-    // =======================================================
     // FORMATO DEL NÚMERO
-    // =======================================================
 
     texto.textContent =
       new Intl.NumberFormat(
@@ -818,18 +751,14 @@ document.addEventListener("DOMContentLoaded", () => {
       );
 
 
-    // =======================================================
     // AGREGAR NÚMERO
-    // =======================================================
 
     capaNumeros.appendChild(
       texto
     );
 
 
-    // =======================================================
     // ACCESIBILIDAD
-    // =======================================================
 
     const nombreDepartamento =
       nombresDepartamentos[idDepartamento]
