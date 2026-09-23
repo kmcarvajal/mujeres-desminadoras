@@ -331,6 +331,85 @@ select {
   user-select: none;
 }
 
+.map-stage__svg-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+}
+
+.map-stage__svg-layer svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* ==========================================================
+   CAPA SVG INTERACTIVA
+   ========================================================== */
+
+.map-stage__svg-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+}
+
+.map-stage__svg-layer svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+
+/* DEPARTAMENTOS INTERACTIVOS */
+
+/* Quitar el rectángulo de foco del navegador */
+.map-stage__svg-layer .departamento-click {
+  outline: none;
+}
+
+.map-stage__svg-layer .departamento-click:focus {
+  outline: none;
+}
+
+
+/* Estado normal:
+   no se ve ningún borde */
+.map-stage__svg-layer .departamento-click path,
+.map-stage__svg-layer .departamento-click polygon,
+.map-stage__svg-layer .departamento-click rect,
+.map-stage__svg-layer .departamento-click circle,
+.map-stage__svg-layer .departamento-click ellipse {
+  stroke: transparent;
+  stroke-width: 0;
+}
+
+
+/* Departamento activo:
+   se dibuja la silueta real */
+.map-stage__svg-layer .departamento-click.departamento-activo path,
+.map-stage__svg-layer .departamento-click.departamento-activo polygon,
+.map-stage__svg-layer .departamento-click.departamento-activo rect,
+.map-stage__svg-layer .departamento-click.departamento-activo circle,
+.map-stage__svg-layer .departamento-click.departamento-activo ellipse {
+  stroke: #755449;
+  stroke-width: 1.5px;
+}
+
+
+/* Cuando se navega con teclado */
+.map-stage__svg-layer .departamento-click:focus-visible path,
+.map-stage__svg-layer .departamento-click:focus-visible polygon,
+.map-stage__svg-layer .departamento-click:focus-visible rect,
+.map-stage__svg-layer .departamento-click:focus-visible circle,
+.map-stage__svg-layer .departamento-click:focus-visible ellipse {
+  stroke: #755449;
+  stroke-width: 1.5px;
+}
+
 .flourish-section {
   padding-top: clamp(55px, 5vw, 85px);
 }
