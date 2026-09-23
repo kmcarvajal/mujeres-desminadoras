@@ -191,15 +191,15 @@ select {
 }
 
 .article-copy--intro {
-  padding-top: clamp(90px, 9vw, 170px);
+  padding-top: clamp(55px, 5vw, 85px);
 }
 
 .article-copy--desminado {
-  padding-top: clamp(90px, 8vw, 150px);
+  padding-top: clamp(55px, 5vw, 85px);
 }
 
 .article-copy--final {
-  padding-top: clamp(100px, 9vw, 170px);
+  padding-top: clamp(55px, 5vw, 85px);
 }
 
 .article-copy p {
@@ -277,7 +277,7 @@ select {
 }
 
 .graphic-section--history {
-  padding-top: clamp(90px, 8vw, 155px);
+  padding-top: clamp(55px, 5vw, 85px);
 }
 
 .history-composite {
@@ -330,11 +330,11 @@ select {
 }
 
 .flourish-section {
-  padding-top: clamp(95px, 9vw, 170px);
+  padding-top: clamp(55px, 5vw, 85px);
 }
 
 .flourish-section--second {
-  padding-top: clamp(70px, 6vw, 120px);
+  padding-top: clamp(45px, 4vw, 70px);
 }
 
 .graphic-label {
@@ -359,7 +359,7 @@ select {
 }
 
 .graphic-section--donut {
-  padding-top: clamp(90px, 8vw, 150px);
+  padding-top: clamp(55px, 5vw, 85px);
 }
 
 .standalone-graphic {
@@ -368,7 +368,7 @@ select {
 }
 
 .people-section {
-  padding-top: clamp(100px, 9vw, 175px);
+  padding-top: clamp(60px, 6vw, 90px);
 }
 
 .people-title {
@@ -491,7 +491,7 @@ select {
 .credits {
   display: grid;
   place-items: center;
-  min-height: clamp(360px, 42vw, 760px);
+  min-height: clamp(200px, 30vw, 400px);
   padding: 80px 20px 140px;
 }
 
@@ -575,11 +575,18 @@ select {
 
 h1#intro-title {
     width: 120%;
-    margin-left: -10%;
+    margin: 0 0 8px -10%;
 }
 
 strong {
   font-weight: 550;
+}
+
+hr {
+  width: 84%;
+  border: 0;
+  border-top: 1px solid var(--unnamed-color-bf8975);
+  margin: 0 auto 52px;
 }
 
 @media (prefers-reduced-motion: reduce) {
