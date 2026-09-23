@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const posicionesNumeros = {
 
-    TOL: { x: 0, y: 0 },
+    TOL: { x: 9, y: 19 },
     CUN: { x: 0, y: 0 },
     VDC: { x: 0, y: 0 },
     ANT: { x: 0, y: 0 },
