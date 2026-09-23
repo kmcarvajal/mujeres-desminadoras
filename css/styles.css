@@ -578,6 +578,13 @@ h1#intro-title {
     margin: 0 0 8px -10%;
 }
 
+@media (max-width: 920px) {
+  h1#intro-title {
+    width: 100%;
+    margin: 0 0 4px 0;
+  }
+}
+
 strong {
   font-weight: 550;
 }
