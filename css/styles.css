@@ -175,14 +175,16 @@ select {
 }
 
 .hero {
-  width: 100%;
-  max-width: 1921px;
-  margin-inline: auto;
+    position: relative;
+    width: 100%;
+    max-width: 1921px;
+    margin-inline: auto;
 }
 
 .hero__image {
-  width: 100%;
-  height: auto;
+    display: block;
+    width: 100%;
+    height: auto;
 }
 
 .article-copy {
@@ -605,3 +607,30 @@ hr {
     transition: none;
   }
 }
+
+
+.redes {
+  position: absolute;
+  top: 62%;
+  left: 50%;
+  display: flex;
+  gap: 16px;
+  transform: translate(-50%, -50%);
+}
+
+nav.redes {
+    background-color: #00000035;
+    padding: 0.6%;
+    border-radius: 50px;
+    box-shadow: 0 0 12px 6px #00000045;
+}
+
+.redes a,
+.redes img {
+  display: block;
+  width: clamp(30px, 1.8vw, 36px);
+  height: clamp(30px, 1.8vw, 36px);
+}
+
+.redes a:hover { transform: scale(1.08); }
+.redes a:focus-visible { outline: 2px solid white; outline-offset: 4px; }
