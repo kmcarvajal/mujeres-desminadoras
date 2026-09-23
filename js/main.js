@@ -1,6 +1,6 @@
 // Las interacciones del mapa estan pendientes.
 
-
+// Redes sociales
 const pagina = document.querySelector('.site-main');
 
 if (pagina) {
