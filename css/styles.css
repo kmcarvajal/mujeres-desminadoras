@@ -634,3 +634,7 @@ nav.redes {
 
 .redes a:hover { transform: scale(1.08); }
 .redes a:focus-visible { outline: 2px solid white; outline-offset: 4px; }
+
+.map-stage__inner-layer {
+  display: none;
+}

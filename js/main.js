@@ -1,4 +1,3 @@
-// Las interacciones del mapa estan pendientes.
 
 // Redes sociales
 const pagina = document.querySelector('.site-main');
@@ -20,3 +19,17 @@ if (pagina) {
     link.rel = 'noopener noreferrer';
   });
 }
+
+// Las interacciones del mapa estan pendientes.
+const mapa = document.getElementById("map-stage");
+const datos = document.getElementById("map-datos");
+
+mapa.addEventListener("click", function () {
+
+  if (datos.style.display === "block") {
+    datos.style.display = "none";
+  } else {
+    datos.style.display = "block";
+  }
+
+});
