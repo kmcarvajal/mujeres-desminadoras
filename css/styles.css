@@ -648,6 +648,7 @@ select {
   .graphic-section--donut,
   .people-section {
     padding-top: 70px;
+    margin: 0px 20px;
   }
 
   .people-grid--desminadoras,
