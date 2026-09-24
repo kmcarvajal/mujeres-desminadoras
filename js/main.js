@@ -108,12 +108,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const posicionesNumeros = {
 
     TOL: { x: 9, y: 19 },
-    CUN: { x: 0, y: 0 },
-    VDC: { x: 0, y: 0 },
-    ANT: { x: 0, y: 0 },
-    ARA: { x: 0, y: 0 },
-    ATL: { x: 0, y: 0 },
-    BOL: { x: 0, y: 0 },
+    CUN: { x: -7, y: -26 },
+    VDC: { x: 0, y: 18 },
+    ANT: { x: 6, y: 30 },
+    ARA: { x: -4, y: -6 },
+    ATL: { x: -2, y: -6 },
+    BOL: { x: 22, y: 26 },
     BOY: { x: 0, y: 0 },
     CAL: { x: 0, y: 0 },
     CAQ: { x: 0, y: 0 },
