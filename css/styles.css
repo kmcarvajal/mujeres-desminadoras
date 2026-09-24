@@ -411,7 +411,7 @@ select {
 /* NÚMEROS DE VÍCTIMAS POR DEPARTAMENTO */
 
 .numero-departamento {
-  font-family: var(--unnamed-font-family-rift);
+  font-family: var(--unnamed-font-family-bebas-neue-pro);
   font-size: 20px;
   font-weight: 700;
 
