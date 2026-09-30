@@ -73,5 +73,5 @@ La sección final incluye enlaces sobre los cuadros de nombre de las protagonist
 
 Actualmente:
 
-- Natalia González, Yessica Espinosa y Dewadhy Zuliem Melo enlazan a sus notas correspondientes.
-- Alberto Ortiz y Gundiralbo Morales utilizan temporalmente `https://www.google.com/` mientras se definen sus URLs finales. (`rel="noopener noreferrer"`).
+- Natalia González, Yessica Espinosa y Dewadhy Zuliem Melo enlazan a sus notas correspondientes. (Articulos estilizadas de acuerdo al Adobe XD).
+- Alberto Ortiz y Gundiralbo Morales utilizan temporalmente `https://www.google.com/` mientras se definen sus URLs finales.
