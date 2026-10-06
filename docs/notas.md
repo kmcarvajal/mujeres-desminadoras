@@ -16,11 +16,15 @@
 ---
 [URL donde queda el proyecto principal](https://www.eltiempo.com/justicia/investigacion/mujeres-victimas-del-conflicto-armado-enfrentan-a-diario-la-muerte-mientras-despejan-la-zona-con-mas-minas-antipersonal-de-colombia-3577493)
 
-[Maquillar -Natalia González](https://www.eltiempo.com/justicia/investigacion/la-david-que-enfrenta-a-goliat-con-educacion-sobre-minas-antipersonal-en-territorios-con-profundas-cicatrices-por-el-conflicto-armado-3576217)
+[Natalia González](https://www.eltiempo.com/justicia/investigacion/la-david-que-enfrenta-a-goliat-con-educacion-sobre-minas-antipersonal-en-territorios-con-profundas-cicatrices-por-el-conflicto-armado-3576217)
 
-[Maquillar -Yessica Espinosa](https://www.eltiempo.com/justicia/investigacion/el-despeje-de-minas-antipersonal-que-se-volvio-una-promesa-a-su-padre-y-un-legado-de-servicio-3576253)
+[Yessica Espinosa](https://www.eltiempo.com/justicia/investigacion/el-despeje-de-minas-antipersonal-que-se-volvio-una-promesa-a-su-padre-y-un-legado-de-servicio-3576253)
 
-[Maquillar -Dewadhy Zuliem Melo](https://www.eltiempo.com/justicia/investigacion/de-nina-fue-secuestrada-y-desplazada-de-adulta-regreso-a-las-zonas-rojas-para-buscar-las-minas-antipersonal-que-la-guerra-deja-enterradas-3577488)
+[Dewadhy Zuliem Melo](https://www.eltiempo.com/justicia/investigacion/de-nina-fue-secuestrada-y-desplazada-de-adulta-regreso-a-las-zonas-rojas-para-buscar-las-minas-antipersonal-que-la-guerra-deja-enterradas-3577488)
+
+[Alberto Ortiz](https://admincmsxalokprd-ceetbpos.msappproxy.net/view/justicia/investigacion/en-las-entranas-de-los-territorios-minados-5-846-civiles-han-muerto-o-resultado-heridos-por-minas-antipersonal-en-colombia-3591445?version=1080873)
+
+[Gundiralbo Morales](https://admincmsxalokprd-ceetbpos.msappproxy.net/view/justicia/investigacion/la-promesa-de-una-incursion-armada-que-sentencio-el-cofundador-de-las-farc-a-la-prensa-francesa-y-por-la-que-24-anos-despues-murio-un-lider-social-3591458?version=1080907)
 
 --- 
 
