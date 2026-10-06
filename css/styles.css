@@ -285,7 +285,7 @@ select {
   color: #5A4726;
 }
 
-.donut-width h2 {
+.donut-width h2, h2#stories-section {
   text-decoration: underline;
     text-decoration-thickness: 1px;
     text-underline-offset: 6px;
@@ -479,6 +479,16 @@ select {
   width: 100%;
   height: auto;
   padding: 6%;
+}
+
+.div-section {
+  background: linear-gradient(
+  180deg,
+  #AFBBBE 0%,
+  #AEB9BC71 94%,
+  transparent 100%
+);
+padding: 20px 0;
 }
 
 .people-section {
