@@ -278,6 +278,22 @@ select {
   margin-inline: auto;
 }
 
+.donut-width h2, .donut-width h3 {
+  margin: 0;
+  text-transform: uppercase;
+  font-family: Rift;
+  color: #5A4726;
+}
+
+.donut-width h2 {
+  text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 6px;
+    text-decoration-color: #bf8975;
+    margin-bottom: 9px;
+}
+
+
 .graphic-section--history {
   padding-top: clamp(55px, 5vw, 85px);
 }
@@ -456,12 +472,13 @@ select {
 }
 
 .graphic-section--donut {
-  padding-top: clamp(55px, 5vw, 85px);
+  padding-top: clamp(65px, 6vw, 95px);
 }
 
 .standalone-graphic {
   width: 100%;
   height: auto;
+  padding: 6%;
 }
 
 .people-section {
