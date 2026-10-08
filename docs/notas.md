@@ -16,6 +16,8 @@
 ---
 [URL donde queda el proyecto principal](https://www.eltiempo.com/justicia/investigacion/mujeres-victimas-del-conflicto-armado-enfrentan-a-diario-la-muerte-mientras-despejan-la-zona-con-mas-minas-antipersonal-de-colombia-3577493)
 
+[Principal en Pre](https://pre.eltiempo.com/justicia/investigacion/mujeres-desminadoras-13805)
+
 [Natalia González](https://www.eltiempo.com/justicia/investigacion/la-david-que-enfrenta-a-goliat-con-educacion-sobre-minas-antipersonal-en-territorios-con-profundas-cicatrices-por-el-conflicto-armado-3576217)
 
 [Yessica Espinosa](https://www.eltiempo.com/justicia/investigacion/el-despeje-de-minas-antipersonal-que-se-volvio-una-promesa-a-su-padre-y-un-legado-de-servicio-3576253)

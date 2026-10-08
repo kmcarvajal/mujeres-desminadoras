@@ -488,7 +488,6 @@ select {
   #AEB9BC71 94%,
   transparent 100%
 );
-padding: 20px 0;
 }
 
 .people-section {
@@ -503,8 +502,9 @@ padding: 20px 0;
   text-align: center;
 }
 
-.people-title--victims {
-  margin-top: 30px;
+.people-title--desminadoras, .people-title--victims {
+  padding-top: 4.5%;
+  font-size: 30px !important;
 }
 
 .people-grid {
@@ -516,11 +516,13 @@ padding: 20px 0;
 .people-grid--desminadoras {
   width: min(85.5%, var(--people-width));
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5%;
 }
 
 .people-grid--victims {
   width: min(57%, var(--victims-width));
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2.3%;
 }
 
 .person-panel {
@@ -665,6 +667,8 @@ padding: 20px 0;
   .people-grid--desminadoras,
   .people-grid--victims {
     width: min(calc(100% - 28px), 520px);
+    grid-template-columns: 1fr;
+    max-width: 520px;
   }
 
   .article-copy--intro,
@@ -678,15 +682,9 @@ padding: 20px 0;
     margin: 0px 20px;
   }
 
-  .people-grid--desminadoras,
-  .people-grid--victims {
-    grid-template-columns: 1fr;
-    max-width: 520px;
-  }
-
-  .people-title--victims {
-    margin-top: 60px;
-  }
+  .people-title--desminadoras, .people-title--victims {
+  padding-top: 9%;
+}
 
   .person-label {
     font-size: clamp(20px, 6vw, 27px);
