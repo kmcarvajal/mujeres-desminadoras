@@ -489,6 +489,7 @@ h2#stories-section {
     #aeb9bc71 94%,
     transparent 100%
   );
+  padding-bottom: 5% !IMPORTANT;
 }
 
 .people-section {
