@@ -16,11 +16,16 @@
   <body>
     <main class="site-main" data-share-url="">
       <header class="hero" aria-label="Mujeres desminadoras">
-        <img
-          class="hero__image"
-          src="assets/banner-inicio.webp"
-          alt="Mujeres desminadoras: el sacrificio de quienes trabajan en campos minados"
-        />
+        <picture class="hero__picture">
+          <!-- MO: cambia únicamente el srcset cuando tengas el banner móvil. -->
+          <source media="(max-width: 700px)" srcset="assets/banner-inicio.webp" />
+          <img
+            class="hero__image"
+            src="assets/banner-inicio.webp"
+            alt="Mujeres desminadoras: el sacrificio de quienes trabajan en campos minados"
+            fetchpriority="high"
+          />
+        </picture>
         <nav class="redes" aria-label="Compartir">
           <a data-red="facebook" aria-label="Compartir en Facebook">
             <img src="assets/social/facebook.svg" alt="" />
@@ -146,6 +151,7 @@
             HISTÓRICO DE VÍCTIMAS DE MINAS ANTIPERSONAL EN COLOMBIA
           </h2>
 
+          <!-- PC: composición con capas y mapa interactivo. -->
           <div class="history-composite">
             <img
               class="history-composite__base"
@@ -178,6 +184,16 @@
               ></div>
             </div>
           </div>
+
+          <!-- MO: imagen única, independiente del mapa interactivo de PC.
+               Sustituye src por assets/Grafico1-M.png cuando esté lista.
+               Temporalmente usa el fondo actual de PC. -->
+          <img
+            class="history-mobile-image"
+            src="assets/Grafico1_fondo-D.png"
+            alt="Histórico de víctimas de minas antipersonal en Colombia."
+            loading="lazy"
+          />
         </div>
       </section>
 
@@ -453,12 +469,16 @@
             Estado actual de zonas registradas a nivel nacional
           </h2>
           <h3>(Corte: 18 de agosto de 2026)</h3>
-          <img
-            class="standalone-graphic"
-            src="assets/Grafico4-D.png"
-            alt="Estado actual de zonas registradas a nivel nacional, corte 18 de agosto de 2026."
-            loading="lazy"
-          />
+          <picture class="donut-picture">
+            <!-- MO: cambia únicamente srcset por assets/Grafico4-M.png. -->
+            <source media="(max-width: 700px)" srcset="assets/Grafico4-D.png" />
+            <img
+              class="standalone-graphic"
+              src="assets/Grafico4-D.png"
+              alt="Estado actual de zonas registradas a nivel nacional, corte 18 de agosto de 2026."
+              loading="lazy"
+            />
+          </picture>
         </div>
       </section>
 

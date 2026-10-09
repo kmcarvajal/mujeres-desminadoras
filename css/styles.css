@@ -889,3 +889,71 @@ nav.redes {
     font-size: clamp(21px, 6vw, 30px);
   }
 }
+
+
+/* VERSION MO - graficos y banner (hasta 700 px) */
+.history-mobile-image {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  /* Banner: sin recortar la imagen provisional de PC. */
+  .hero__picture,
+  .donut-picture {
+    display: block;
+    width: 100%;
+  }
+
+  .hero__image {
+    width: 100%;
+    height: auto;
+  }
+
+  .hero .redes {
+    top: auto;
+    bottom: 8%;
+    left: 50%;
+    transform: translateX(-50%);
+    gap: 12px;
+  }
+
+  .hero nav.redes {
+    padding: 6px 10px;
+  }
+
+  .hero .redes a,
+  .hero .redes img {
+    width: 30px;
+    height: 30px;
+  }
+
+  /* Histórico: MO es una sola imagen; se oculta PC por completo. */
+  .graphic-section--history .history-composite {
+    display: none;
+  }
+
+  .graphic-section--history .history-mobile-image {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  /* Mantener títulos legibles y evitar sangrías internas del gráfico. */
+  .graphic-section--donut .donut-width h2 {
+    font-size: clamp(24px, 7vw, 34px);
+    line-height: 1.05;
+  }
+
+  .graphic-section--donut .donut-width h3 {
+    font-size: clamp(17px, 5vw, 23px);
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+
+  .graphic-section--donut .standalone-graphic {
+    display: block;
+    width: 100%;
+    height: auto;
+    padding: 0;
+  }
+}
