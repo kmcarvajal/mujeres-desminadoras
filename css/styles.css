@@ -366,8 +366,6 @@ h2#stories-section {
   height: 100%;
 }
 
-/* CAPA SVG INTERACTIVA */
-
 .map-stage__svg-layer {
   position: absolute;
   inset: 0;
@@ -382,9 +380,6 @@ h2#stories-section {
   height: 100%;
 }
 
-/* DEPARTAMENTOS INTERACTIVOS */
-
-/* Quitar el rectángulo de foco del navegador */
 .map-stage__svg-layer .departamento-click {
   outline: none;
 }
@@ -393,8 +388,6 @@ h2#stories-section {
   outline: none;
 }
 
-/* Estado normal:
-   no se ve ningún borde */
 .map-stage__svg-layer .departamento-click path,
 .map-stage__svg-layer .departamento-click polygon,
 .map-stage__svg-layer .departamento-click rect,
@@ -404,8 +397,6 @@ h2#stories-section {
   stroke-width: 0;
 }
 
-/* Departamento activo:
-   se dibuja la silueta real */
 .map-stage__svg-layer .departamento-click.departamento-activo path,
 .map-stage__svg-layer .departamento-click.departamento-activo polygon,
 .map-stage__svg-layer .departamento-click.departamento-activo rect,
@@ -415,7 +406,6 @@ h2#stories-section {
   stroke-width: 1.5px;
 }
 
-/* Cuando se navega con teclado */
 .map-stage__svg-layer .departamento-click:focus-visible path,
 .map-stage__svg-layer .departamento-click:focus-visible polygon,
 .map-stage__svg-layer .departamento-click:focus-visible rect,
@@ -425,21 +415,15 @@ h2#stories-section {
   stroke-width: 1.5px;
 }
 
-/* NÚMEROS DE VÍCTIMAS POR DEPARTAMENTO */
-
 .numero-departamento {
   font-family: var(--unnamed-font-family-bebas-neue-pro);
   font-size: 20px;
   font-weight: 700;
-
   fill: #efe7c2;
-
   stroke: #755449;
   stroke-width: 1px;
   paint-order: stroke fill;
-
   pointer-events: none;
-
   vector-effect: non-scaling-stroke;
 }
 
@@ -489,7 +473,7 @@ h2#stories-section {
     #aeb9bc71 94%,
     transparent 100%
   );
-  padding-bottom: 5% !IMPORTANT;
+  padding-bottom: 5% !important;
 }
 
 .people-section {
@@ -890,14 +874,11 @@ nav.redes {
   }
 }
 
-
-/* VERSION MO - graficos y banner (hasta 700 px) */
 .history-mobile-image {
   display: none;
 }
 
 @media (max-width: 700px) {
-  /* Banner: sin recortar la imagen provisional de PC. */
   .hero__picture,
   .donut-picture {
     display: block;
@@ -927,7 +908,6 @@ nav.redes {
     height: 30px;
   }
 
-  /* Histórico: MO es una sola imagen; se oculta PC por completo. */
   .graphic-section--history .history-composite {
     display: none;
   }
@@ -938,7 +918,6 @@ nav.redes {
     height: auto;
   }
 
-  /* Mantener títulos legibles y evitar sangrías internas del gráfico. */
   .graphic-section--donut .donut-width h2 {
     font-size: clamp(24px, 7vw, 34px);
     line-height: 1.05;
