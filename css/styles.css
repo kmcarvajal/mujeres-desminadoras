@@ -857,7 +857,7 @@ nav.redes {
   }
 
   .hero .redes {
-    top: auto;
+    top: 64%;
     bottom: 8%;
     left: 50%;
     transform: translateX(-50%);
