@@ -179,7 +179,7 @@ select {
 .hero {
   position: relative;
   width: 100%;
-  max-width: 1921px;
+  /*max-width: 1921px;*/
   margin-inline: auto;
 }
 
@@ -499,9 +499,15 @@ h2#stories-section {
   overflow: hidden;
 }
 
-.person-panel > img {
+.person-panel picture {
+  display: block;
   width: 100%;
-  height: 100%;
+}
+
+.person-panel picture img {
+  display: block;
+  width: 100%;
+  height: auto;
   aspect-ratio: 822 / 905;
   object-fit: cover;
 }
@@ -651,8 +657,24 @@ h2#stories-section {
     padding-top: 9%;
   }
 
-  .person-label {
-    font-size: clamp(20px, 6vw, 27px);
+  /* En MO la imagen ya contiene el nombre: el enlace cubre toda la tarjeta. */
+  .person-panel .person-label,
+  .people-grid--desminadoras .person-label,
+  .people-grid--victims .person-label {
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    background: transparent;
+  }
+
+  .person-panel .person-label span {
+    display: none;
+  }
+
+  .person-panel .person-label[href]:hover,
+  .person-panel .person-label[href]:focus-visible {
+    background: transparent;
   }
 
   .credits {
