@@ -933,3 +933,8 @@ nav.redes {
     padding: 0;
   }
 }
+
+h3.people-title.people-title--victims {
+    padding-top: 0 !important;
+    margin-top: 30px !important;
+}
