@@ -542,14 +542,26 @@ h2#stories-section {
   padding: 0.5em;
 }
 
+@keyframes respirar {
+  0%, 100% {
+    background: transparent;
+  }
+
+  50% {
+    background: rgba(191, 137, 117, 0.72);
+  }
+}
+
 .person-label[href] {
   cursor: pointer;
+  animation: respirar 3s ease-in-out infinite;
 }
 
 .person-label[href]:hover,
 .person-label[href]:focus-visible {
   background: rgba(191, 137, 117, 0.72);
   color: var(--unnamed-color-261b09);
+  animation: none;
 }
 
 .person-label[href]:focus-visible {
