@@ -775,3 +775,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 });
+
+// Conozca las historias: pulsación mantenida en pantallas táctiles.
+// No se impide la navegación de los enlaces al levantarse el dedo.
+document.addEventListener("DOMContentLoaded", () => {
+  const section = document.querySelector(".people-section");
+  if (!section) return;
+  const links = section.querySelectorAll(".person-label[href]");
+  const clearTouch = () => {
+    section.classList.remove("is-touch-interacting");
+    links.forEach((link) => link.classList.remove("is-touch-active"));
+  };
+  links.forEach((link) => {
+    link.addEventListener("pointerdown", (event) => {
+      if (event.pointerType !== "touch" && event.pointerType !== "pen") return;
+      clearTouch();
+      section.classList.add("is-touch-interacting");
+      link.classList.add("is-touch-active");
+    });
+    link.addEventListener("pointerup", clearTouch);
+    link.addEventListener("pointercancel", clearTouch);
+    link.addEventListener("lostpointercapture", clearTouch);
+  });
+  window.addEventListener("pointerup", clearTouch);
+  window.addEventListener("pointercancel", clearTouch);
+});

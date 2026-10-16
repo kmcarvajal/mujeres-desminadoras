@@ -1,3 +1,4 @@
+/* 01. Variables del proyecto y estilos tipográficos */
 :root {
   /* Colores entregados desde Adobe XD */
   --unnamed-color-9fb1bf: #9fb1bf;
@@ -127,6 +128,7 @@
   color: var(--unnamed-color-261b09);
 }
 
+/* 02. Base global, utilidades y estructura general */
 * {
   box-sizing: border-box;
 }
@@ -174,6 +176,7 @@ select {
   border: 0;
 }
 
+/* 03. Encabezado / hero y botones sociales */
 .hero {
   position: relative;
   width: 100%;
@@ -181,12 +184,62 @@ select {
   margin-inline: auto;
 }
 
+.redes {
+  position: absolute;
+  top: 62%;
+  left: 50%;
+  display: flex;
+  gap: 16px;
+  transform: translate(-50%, -50%);
+}
+
+nav.redes {
+  background-color: #00000035;
+  padding: 0.6%;
+  border-radius: 50px;
+  box-shadow: 0 0 12px 6px #00000045;
+}
+
+.redes a,
+.redes img {
+  display: block;
+  width: clamp(30px, 1.8vw, 36px);
+  height: clamp(30px, 1.8vw, 36px);
+}
+
+.redes a:hover {
+  transform: scale(1.08);
+}
+.redes a:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 4px;
+}
+
+
 .hero__image {
   display: block;
   width: 100%;
   height: auto;
 }
 
+h1#intro-title {
+  width: 120%;
+  margin: 0 0 8px -10%;
+}
+
+strong {
+  font-weight: 550;
+}
+
+hr {
+  width: 84%;
+  border: 0;
+  border-top: 1px solid var(--unnamed-color-bf8975);
+  margin: 0 auto 52px;
+}
+
+
+/* 04. Cuerpo narrativo, títulos y textos */
 .article-copy {
   width: min(calc(100% - 40px), var(--text-width));
   margin-inline: auto;
@@ -264,6 +317,7 @@ select {
   letter-spacing: var(--unnamed-character-spacing-0-88);
 }
 
+/* 05. Secciones gráficas: mapa histórico, Flourish y donut */
 .graphic-width {
   width: min(calc(100% - 40px), var(--graphic-width));
   margin-inline: auto;
@@ -296,6 +350,11 @@ h2#stories-section {
 .graphic-section--history {
   padding-top: clamp(55px, 5vw, 85px);
 }
+
+.history-mobile-image {
+  display: none;
+}
+
 
 .history-composite {
   position: relative;
@@ -454,6 +513,7 @@ h2#stories-section {
   padding-bottom: 5% !important;
 }
 
+/* 06. Conozca las historias: tarjetas, nombres y respiración */
 .people-section {
   padding-top: clamp(60px, 6vw, 90px);
 }
@@ -471,6 +531,12 @@ h2#stories-section {
   padding-top: 4.5%;
   font-size: 30px !important;
 }
+
+h3.people-title.people-title--victims {
+  padding-top: 0 !important;
+  margin-top: 30px !important;
+}
+
 
 .people-grid {
   display: grid;
@@ -562,7 +628,6 @@ h2#stories-section {
   animation: respirar 3s ease-in-out infinite;
 }
 
-.person-label[href]:hover,
 .person-label[href]:focus-visible {
   background: rgba(191, 137, 117, 0.72);
   color: var(--unnamed-color-261b09);
@@ -572,6 +637,21 @@ h2#stories-section {
 .person-label[href]:focus-visible {
   outline: 3px solid var(--unnamed-color-261b09);
   outline-offset: -3px;
+}
+
+/* Si se activa una historia, las demás se apagan por completo.
+   No se congela el brillo que tenían durante la respiración. */
+.people-section:has(.person-label[href]:focus-visible) .person-label[href]:not(:focus-visible),
+.people-section.is-touch-interacting .person-label[href]:not(.is-touch-active) {
+  animation: none;
+  background: transparent;
+  transition: none;
+}
+
+.people-section .person-label[href].is-touch-active {
+  animation: none;
+  background: rgba(191, 137, 117, 0.72);
+  color: var(--unnamed-color-261b09);
 }
 
 .person-label--natalia {
@@ -601,6 +681,7 @@ h2#stories-section {
   top: 63.31%;
 }
 
+/* 07. Pie de página / créditos */
 .credits {
   display: grid;
   place-items: center;
@@ -613,53 +694,6 @@ h2#stories-section {
   font-size: var(--unnamed-font-size-27);
   line-height: var(--unnamed-line-spacing-26);
   letter-spacing: var(--unnamed-character-spacing--0-81);
-}
-
-h1#intro-title {
-  width: 120%;
-  margin: 0 0 8px -10%;
-}
-
-strong {
-  font-weight: 550;
-}
-
-hr {
-  width: 84%;
-  border: 0;
-  border-top: 1px solid var(--unnamed-color-bf8975);
-  margin: 0 auto 52px;
-}
-
-.redes {
-  position: absolute;
-  top: 62%;
-  left: 50%;
-  display: flex;
-  gap: 16px;
-  transform: translate(-50%, -50%);
-}
-
-nav.redes {
-  background-color: #00000035;
-  padding: 0.6%;
-  border-radius: 50px;
-  box-shadow: 0 0 12px 6px #00000045;
-}
-
-.redes a,
-.redes img {
-  display: block;
-  width: clamp(30px, 1.8vw, 36px);
-  height: clamp(30px, 1.8vw, 36px);
-}
-
-.redes a:hover {
-  transform: scale(1.08);
-}
-.redes a:focus-visible {
-  outline: 2px solid white;
-  outline-offset: 4px;
 }
 
 /* CRÉDITOS */
@@ -761,16 +795,7 @@ nav.redes {
   text-decoration: underline;
 }
 
-.history-mobile-image {
-  display: none;
-}
-
-h3.people-title.people-title--victims {
-  padding-top: 0 !important;
-  margin-top: 30px !important;
-}
-
-/* Ajustes responsive agrupados por breakpoint */
+/* 08. Responsive: breakpoints de mayor a menor, luego capacidades */
 
 @media (max-width: 920px) {
   h1#intro-title {
@@ -838,24 +863,24 @@ h3.people-title.people-title--victims {
     padding-top: 9%;
   }
 
-  /* En MO la imagen ya contiene el nombre: el enlace cubre toda la tarjeta. */
+  /* La imagen móvil incluye el nombre: el hotspot coincide solamente
+     con el bloque de 3 columnas x 2 filas, no con toda la fotografía. */
   .person-panel .person-label,
   .people-grid--desminadoras .person-label,
   .people-grid--victims .person-label {
-    inset: 0;
-    width: 100%;
-    height: 100%;
+    top: 38%;
+    left: 11.7%;
+    right: auto;
+    bottom: auto;
+    width: 81.8%;
+    height: 55%;
     padding: 0;
     background: transparent;
   }
 
+  /* El texto ya está incorporado en las imágenes para mobile. */
   .person-panel .person-label span {
     display: none;
-  }
-
-  .person-panel .person-label[href]:hover,
-  .person-panel .person-label[href]:focus-visible {
-    background: transparent;
   }
 
   .credits {
@@ -957,6 +982,20 @@ h3.people-title.people-title--victims {
   }
 }
 
+@media (hover: hover) {
+  .person-label[href]:hover {
+    background: rgba(191, 137, 117, 0.72);
+    color: var(--unnamed-color-261b09);
+    animation: none;
+  }
+
+  .people-section:has(.person-label[href]:hover) .person-label[href]:not(:hover) {
+    animation: none;
+    background: transparent;
+    transition: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -964,5 +1003,6 @@ h3.people-title.people-title--victims {
 
   .person-label {
     transition: none;
+    animation: none;
   }
 }
