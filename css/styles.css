@@ -395,7 +395,7 @@ h2#stories-section {
 
 .numero-departamento {
   font-family: var(--unnamed-font-family-bebas-neue-pro);
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 700;
   fill: #efe7c2;
   stroke: #755449;
@@ -538,6 +538,13 @@ h2#stories-section {
   height: 26.75%;
   padding: 0.5em;
 }
+
+.graphic-section--donut .donut-width h2,
+  .graphic-section--history .graphic-width h2,
+  h2#flourish-one-title,
+  h2#flourish-two-title {
+    font-size: 32px;
+  }
 
 @keyframes respirar {
   0%,
