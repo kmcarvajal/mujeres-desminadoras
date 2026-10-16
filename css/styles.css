@@ -274,6 +274,7 @@ select {
   margin-inline: auto;
 }
 
+.graphic-width h2,
 .donut-width h2,
 .donut-width h3 {
   margin: 0;
@@ -282,6 +283,7 @@ select {
   color: #5a4726;
 }
 
+.graphic-width h2,
 .donut-width h2,
 h2#stories-section {
   text-decoration: underline;
@@ -359,10 +361,7 @@ h2#stories-section {
   height: 100%;
 }
 
-.map-stage__svg-layer .departamento-click {
-  outline: none;
-}
-
+.map-stage__svg-layer .departamento-click,
 .map-stage__svg-layer .departamento-click:focus {
   outline: none;
 }
@@ -541,7 +540,8 @@ h2#stories-section {
 }
 
 @keyframes respirar {
-  0%, 100% {
+  0%,
+  100% {
     background: transparent;
   }
 
@@ -608,101 +608,9 @@ h2#stories-section {
   letter-spacing: var(--unnamed-character-spacing--0-81);
 }
 
-@media (max-width: 900px) {
-  body {
-    font-size: 19px;
-    line-height: 28px;
-  }
-
-  .article-copy p {
-    font-size: 19px;
-    line-height: 28px;
-  }
-
-  .article-lead,
-  .article-heading,
-  .people-title {
-    font-size: 30px;
-    line-height: 36px;
-  }
-
-  .embed-frame,
-  .embed-frame iframe {
-    min-height: 520px;
-    height: 520px;
-  }
-
-  .person-label {
-    font-size: clamp(13px, 1.8vw, 21px);
-  }
-}
-
-@media (max-width: 700px) {
-  .article-copy,
-  .graphic-width,
-  .donut-width {
-    width: min(calc(100% - 28px), 100%);
-  }
-
-  .people-grid--desminadoras,
-  .people-grid--victims {
-    width: min(calc(100% - 28px), 520px);
-    grid-template-columns: 1fr;
-    max-width: 520px;
-  }
-
-  .article-copy--intro,
-  .article-copy--desminado,
-  .article-copy--final,
-  .graphic-section--history,
-  .flourish-section,
-  .graphic-section--donut,
-  .people-section {
-    padding-top: 50px;
-    margin: 0px 20px;
-  }
-
-  .people-title--desminadoras,
-  .people-title--victims {
-    padding-top: 9%;
-  }
-
-  /* En MO la imagen ya contiene el nombre: el enlace cubre toda la tarjeta. */
-  .person-panel .person-label,
-  .people-grid--desminadoras .person-label,
-  .people-grid--victims .person-label {
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    padding: 0;
-    background: transparent;
-  }
-
-  .person-panel .person-label span {
-    display: none;
-  }
-
-  .person-panel .person-label[href]:hover,
-  .person-panel .person-label[href]:focus-visible {
-    background: transparent;
-  }
-
-  .credits {
-    min-height: 320px;
-    padding-bottom: 90px;
-  }
-}
-
 h1#intro-title {
   width: 120%;
   margin: 0 0 8px -10%;
-}
-
-@media (max-width: 920px) {
-  h1#intro-title {
-    width: 100%;
-    margin: 0 0 4px 0;
-  }
 }
 
 strong {
@@ -714,16 +622,6 @@ hr {
   border: 0;
   border-top: 1px solid var(--unnamed-color-bf8975);
   margin: 0 auto 52px;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
-  .person-label {
-    transition: none;
-  }
 }
 
 .redes {
@@ -756,7 +654,6 @@ nav.redes {
   outline: 2px solid white;
   outline-offset: 4px;
 }
-
 
 /* CRÉDITOS */
 .credits .credits__content {
@@ -857,7 +754,108 @@ nav.redes {
   text-decoration: underline;
 }
 
+.history-mobile-image {
+  display: none;
+}
+
+h3.people-title.people-title--victims {
+  padding-top: 0 !important;
+  margin-top: 30px !important;
+}
+
+/* Ajustes responsive agrupados por breakpoint */
+
+@media (max-width: 920px) {
+  h1#intro-title {
+    width: 100%;
+    margin: 0 0 4px 0;
+  }
+}
+
+@media (max-width: 900px) {
+  body {
+    font-size: 19px;
+    line-height: 28px;
+  }
+
+  .article-copy p {
+    font-size: 19px;
+    line-height: 28px;
+  }
+
+  .article-lead,
+  .article-heading,
+  .people-title {
+    font-size: 30px;
+    line-height: 36px;
+  }
+
+  .embed-frame,
+  .embed-frame iframe {
+    min-height: 520px;
+    height: 520px;
+  }
+
+  .person-label {
+    font-size: clamp(13px, 1.8vw, 21px);
+  }
+}
+
 @media (max-width: 700px) {
+  .article-copy,
+  .graphic-width,
+  .donut-width {
+    width: min(calc(100% - 28px), 100%);
+  }
+
+  .people-grid--desminadoras,
+  .people-grid--victims {
+    width: min(calc(100% - 28px), 520px);
+    grid-template-columns: 1fr;
+    max-width: 520px;
+  }
+
+  .article-copy--intro,
+  .article-copy--desminado,
+  .article-copy--final,
+  .graphic-section--history,
+  .flourish-section,
+  .graphic-section--donut,
+  .people-section {
+    padding-top: 50px;
+    margin: 0px 20px;
+  }
+
+  .people-title--desminadoras,
+  .people-title--victims {
+    padding-top: 9%;
+  }
+
+  /* En MO la imagen ya contiene el nombre: el enlace cubre toda la tarjeta. */
+  .person-panel .person-label,
+  .people-grid--desminadoras .person-label,
+  .people-grid--victims .person-label {
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    background: transparent;
+  }
+
+  .person-panel .person-label span {
+    display: none;
+  }
+
+  .person-panel .person-label[href]:hover,
+  .person-panel .person-label[href]:focus-visible {
+    background: transparent;
+  }
+
+  .credits {
+    min-height: 320px;
+    padding-bottom: 90px;
+  }
+
   .credits .credits__title {
     line-height: 36px;
   }
@@ -875,13 +873,7 @@ nav.redes {
   .credits .credits__trust-name {
     font-size: clamp(21px, 6vw, 30px);
   }
-}
 
-.history-mobile-image {
-  display: none;
-}
-
-@media (max-width: 700px) {
   .hero__picture,
   .donut-picture {
     display: block;
@@ -916,7 +908,8 @@ nav.redes {
     height: auto;
   }
 
-  .graphic-section--donut .donut-width h2 {
+  .graphic-section--donut .donut-width h2,
+  .graphic-section--history .graphic-width h2 {
     font-size: clamp(24px, 7vw, 34px);
     line-height: 1.05;
   }
@@ -930,9 +923,39 @@ nav.redes {
   .graphic-section--donut .standalone-graphic {
     padding: 0;
   }
+
+  .graphic-section--donut .donut-width h2,
+  .graphic-section--history .graphic-width h2 {
+    position: relative;
+    width: fit-content;
+    margin-bottom: 9px;
+    text-decoration: none;
+  }
+
+  .graphic-section--donut .donut-width h2::after,
+  .graphic-section--history .graphic-width h2::after {
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    height: 1px;
+    background-color: #bf8975;
+  }
+  .graphic-section--donut .donut-width h2::after {
+    width: 87%;
+  }
+
+  .graphic-section--history .graphic-width h2::after {
+    width: 79%;
+  }
 }
 
-h3.people-title.people-title--victims {
-    padding-top: 0 !important;
-    margin-top: 30px !important;
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .person-label {
+    transition: none;
+  }
 }
