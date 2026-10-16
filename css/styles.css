@@ -1,5 +1,8 @@
 /* 01. Variables del proyecto y estilos tipográficos */
 :root {
+  /* Color del efecto translúcido, según la nueva referencia visual. */
+  --highlight-peach: 255, 233, 226;
+
   /* Colores entregados desde Adobe XD */
   --unnamed-color-9fb1bf: #9fb1bf;
   --unnamed-color-51590d: #51590d;
@@ -526,17 +529,29 @@ h2#stories-section {
   text-align: center;
 }
 
+h2#stories-section {
+  margin-bottom: 72.5px;
+}
+
 .people-title--desminadoras,
 .people-title--victims {
-  padding-top: 4.5%;
-  font-size: 30px !important;
+  margin: 0 0 37px;
+  padding-top: 0;
+  font-family: var(--unnamed-font-family-bebas-neue-pro);
+  font-style: var(--unnamed-font-style-normal);
+  font-weight: 500;
+  font-size: 35px !important;
+  line-height: 42px;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  font-stretch: expanded;
 }
 
 h3.people-title.people-title--victims {
+  margin-top: 37px !important;
+  margin-bottom: 37px !important;
   padding-top: 0 !important;
-  margin-top: 30px !important;
 }
-
 
 .people-grid {
   display: grid;
@@ -548,6 +563,7 @@ h3.people-title.people-title--victims {
   width: min(85.5%, var(--people-width));
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.5%;
+  margin-bottom: 37px;
 }
 
 .people-grid--victims {
@@ -619,7 +635,7 @@ h3.people-title.people-title--victims {
   }
 
   50% {
-    background: rgba(191, 137, 117, 0.72);
+    background: rgba(var(--highlight-peach), 0.72);
   }
 }
 
@@ -629,7 +645,7 @@ h3.people-title.people-title--victims {
 }
 
 .person-label[href]:focus-visible {
-  background: rgba(191, 137, 117, 0.72);
+  background: rgba(var(--highlight-peach), 0.72);
   color: var(--unnamed-color-261b09);
   animation: none;
 }
@@ -650,7 +666,7 @@ h3.people-title.people-title--victims {
 
 .people-section .person-label[href].is-touch-active {
   animation: none;
-  background: rgba(191, 137, 117, 0.72);
+  background: rgba(var(--highlight-peach), 0.72);
   color: var(--unnamed-color-261b09);
 }
 
@@ -834,6 +850,14 @@ h3.people-title.people-title--victims {
 }
 
 @media (max-width: 700px) {
+  /* Titular de apertura compacto según la referencia mobile. */
+  .article-copy--intro .article-lead {
+    font-size: 20px;
+    line-height: 23px;
+    letter-spacing: 0.25px;
+    margin-bottom: 12px;
+  }
+
   .article-copy,
   .graphic-width,
   .donut-width {
@@ -858,9 +882,25 @@ h3.people-title.people-title--victims {
     margin: 0px 20px;
   }
 
+  h2#stories-section {
+    margin-bottom: 40px;
+  }
+
   .people-title--desminadoras,
   .people-title--victims {
-    padding-top: 9%;
+    margin-bottom: 22px;
+    padding-top: 0;
+    font-size: 28px !important;
+    line-height: 32px;
+  }
+
+  .people-grid--desminadoras {
+    margin-bottom: 22px;
+  }
+
+  h3.people-title.people-title--victims {
+    margin-top: 22px !important;
+    margin-bottom: 22px !important;
   }
 
   /* La imagen móvil incluye el nombre: el hotspot coincide solamente
@@ -876,6 +916,50 @@ h3.people-title.people-title--victims {
     height: 54%;
     padding: 0;
     background: transparent;
+  }
+
+  /* Los nombres están impresos en los PNG. El pulso tiñe los bordes
+     y mantiene transparente el centro para facilitar la lectura. */
+  @keyframes respirar-mobile {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+  }
+
+  .people-section .person-panel .person-label[href] {
+    animation: none;
+    background: transparent;
+  }
+
+  .people-section .person-panel .person-label[href]::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(
+      ellipse 70% 65% at center,
+      transparent 0%,
+      rgba(var(--highlight-peach), 0.03) 42%,
+      rgba(var(--highlight-peach), 0.38) 75%,
+      rgba(var(--highlight-peach), 0.76) 100%
+    );
+    animation: respirar-mobile 3s ease-in-out infinite;
+  }
+
+  .people-section .person-panel .person-label[href]:focus-visible::before,
+  .people-section .person-panel .person-label[href].is-touch-active::before {
+    animation: none;
+    opacity: 1;
+  }
+
+  .people-section .person-panel .person-label[href]:focus-visible,
+  .people-section .person-panel .person-label[href].is-touch-active {
+    background: transparent;
+  }
+
+  .people-section.is-touch-interacting .person-label[href]:not(.is-touch-active)::before,
+  .people-section:has(.person-label[href]:focus-visible) .person-label[href]:not(:focus-visible)::before {
+    animation: none;
+    opacity: 0;
   }
 
   /* El texto ya está incorporado en las imágenes para mobile. */
@@ -984,7 +1068,7 @@ h3.people-title.people-title--victims {
 
 @media (hover: hover) {
   .person-label[href]:hover {
-    background: rgba(191, 137, 117, 0.72);
+    background: rgba(var(--highlight-peach), 0.72);
     color: var(--unnamed-color-261b09);
     animation: none;
   }
