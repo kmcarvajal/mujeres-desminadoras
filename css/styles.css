@@ -868,12 +868,12 @@ h3.people-title.people-title--victims {
   .person-panel .person-label,
   .people-grid--desminadoras .person-label,
   .people-grid--victims .person-label {
-    top: 38%;
+    top: 37%;
     left: 11.7%;
     right: auto;
     bottom: auto;
     width: 81.8%;
-    height: 55%;
+    height: 54%;
     padding: 0;
     background: transparent;
   }
