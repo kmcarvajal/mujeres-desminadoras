@@ -10,11 +10,9 @@
   --unnamed-color-261b09: #261b09;
 
   /* Tipografías entregadas desde Adobe XD */
-  --unnamed-font-family-rift: "rift", "Rift", "Arial Narrow", sans-serif;
-  --unnamed-font-family-vesterbro-var:
-    "vesterbro", "Vesterbro Var", Georgia, serif;
-  --unnamed-font-family-bebas-neue-pro:
-    "bebas-neue-pro", "Bebas Neue Pro", "Arial Narrow", sans-serif;
+  --unnamed-font-family-rift: "rift", sans-serif;
+  --unnamed-font-family-vesterbro-var: "vesterbro-vf", serif;
+  --unnamed-font-family-bebas-neue-pro: "bebas-neue-pro-expanded", sans-serif;
   --unnamed-font-family-printf: "printf", "PRINTF", "Courier New", monospace;
   --unnamed-font-style-normal: normal;
   --unnamed-font-style-italic: italic;
@@ -280,7 +278,7 @@ select {
 .donut-width h3 {
   margin: 0;
   text-transform: uppercase;
-  font-family: Rift;
+  font-family: "rift", sans-serif;
   color: #5a4726;
 }
 
