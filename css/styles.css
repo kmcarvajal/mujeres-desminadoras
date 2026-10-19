@@ -1,7 +1,7 @@
 /* 01. Variables del proyecto y estilos tipográficos */
 :root {
   /* Color del efecto translúcido, según la nueva referencia visual. */
-  --highlight-peach: 255, 233, 226;
+  --highlight-peach: 204, 70, 46;
 
   /* Colores entregados desde Adobe XD */
   --unnamed-color-9fb1bf: #9fb1bf;
@@ -218,7 +218,6 @@ nav.redes {
   outline-offset: 4px;
 }
 
-
 .hero__image {
   display: block;
   width: 100%;
@@ -240,7 +239,6 @@ hr {
   border-top: 1px solid var(--unnamed-color-bf8975);
   margin: 0 auto 52px;
 }
-
 
 /* 04. Cuerpo narrativo, títulos y textos */
 .article-copy {
@@ -357,7 +355,6 @@ h2#stories-section {
 .history-mobile-image {
   display: none;
 }
-
 
 .history-composite {
   position: relative;
@@ -527,7 +524,6 @@ h2#stories-section {
   line-height: var(--unnamed-line-spacing-42);
   letter-spacing: var(--unnamed-character-spacing-0-88);
   text-align: center;
-
 }
 
 h2#stories-section {
@@ -549,8 +545,8 @@ h2#stories-section {
 }
 
 h3.people-title.people-title--desminadoras {
-    margin-top: -37px !important;
-    padding-top: 37px !important;
+  margin-top: -37px !important;
+  padding-top: 37px !important;
 }
 
 h3.people-title.people-title--victims {
@@ -628,11 +624,11 @@ h3.people-title.people-title--victims {
 }
 
 .graphic-section--donut .donut-width h2,
-  .graphic-section--history .graphic-width h2,
-  h2#flourish-one-title,
-  h2#flourish-two-title {
-    font-size: 32px;
-  }
+.graphic-section--history .graphic-width h2,
+h2#flourish-one-title,
+h2#flourish-two-title {
+  font-size: 32px;
+}
 
 @keyframes respirar {
   0%,
@@ -641,7 +637,7 @@ h3.people-title.people-title--victims {
   }
 
   50% {
-    background: rgba(var(--highlight-peach), 0.72);
+    background: rgba(var(--highlight-peach), 0.3);
   }
 }
 
@@ -651,7 +647,7 @@ h3.people-title.people-title--victims {
 }
 
 .person-label[href]:focus-visible {
-  background: rgba(var(--highlight-peach), 0.72);
+  background: rgba(var(--highlight-peach), 0.3);
   color: var(--unnamed-color-261b09);
   animation: none;
 }
@@ -663,7 +659,8 @@ h3.people-title.people-title--victims {
 
 /* Si se activa una historia, las demás se apagan por completo.
    No se congela el brillo que tenían durante la respiración. */
-.people-section:has(.person-label[href]:focus-visible) .person-label[href]:not(:focus-visible),
+.people-section:has(.person-label[href]:focus-visible)
+  .person-label[href]:not(:focus-visible),
 .people-section.is-touch-interacting .person-label[href]:not(.is-touch-active) {
   animation: none;
   background: transparent;
@@ -672,7 +669,7 @@ h3.people-title.people-title--victims {
 
 .people-section .person-label[href].is-touch-active {
   animation: none;
-  background: rgba(var(--highlight-peach), 0.72);
+  background: rgba(var(--highlight-peach), 0.3);
   color: var(--unnamed-color-261b09);
 }
 
@@ -927,8 +924,13 @@ h3.people-title.people-title--victims {
   /* Los nombres están impresos en los PNG. El pulso tiñe los bordes
      y mantiene transparente el centro para facilitar la lectura. */
   @keyframes respirar-mobile {
-    0%, 100% { opacity: 0; }
-    50% { opacity: 1; }
+    0%,
+    100% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
   }
 
   .people-section .person-panel .person-label[href] {
@@ -944,9 +946,9 @@ h3.people-title.people-title--victims {
     background: radial-gradient(
       ellipse 70% 65% at center,
       transparent 0%,
-      rgba(var(--highlight-peach), 0.03) 42%,
-      rgba(var(--highlight-peach), 0.38) 75%,
-      rgba(var(--highlight-peach), 0.76) 100%
+      rgba(var(--highlight-peach), 0.1) 42%,
+      rgba(var(--highlight-peach), 0.2) 75%,
+      rgba(var(--highlight-peach), 0.3) 100%
     );
     animation: respirar-mobile 3s ease-in-out infinite;
   }
@@ -962,8 +964,10 @@ h3.people-title.people-title--victims {
     background: transparent;
   }
 
-  .people-section.is-touch-interacting .person-label[href]:not(.is-touch-active)::before,
-  .people-section:has(.person-label[href]:focus-visible) .person-label[href]:not(:focus-visible)::before {
+  .people-section.is-touch-interacting
+    .person-label[href]:not(.is-touch-active)::before,
+  .people-section:has(.person-label[href]:focus-visible)
+    .person-label[href]:not(:focus-visible)::before {
     animation: none;
     opacity: 0;
   }
@@ -1074,12 +1078,13 @@ h3.people-title.people-title--victims {
 
 @media (hover: hover) {
   .person-label[href]:hover {
-    background: rgba(var(--highlight-peach), 0.72);
+    background: rgba(var(--highlight-peach), 0.3);
     color: var(--unnamed-color-261b09);
     animation: none;
   }
 
-  .people-section:has(.person-label[href]:hover) .person-label[href]:not(:hover) {
+  .people-section:has(.person-label[href]:hover)
+    .person-label[href]:not(:hover) {
     animation: none;
     background: transparent;
     transition: none;
