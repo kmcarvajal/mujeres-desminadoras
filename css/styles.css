@@ -527,6 +527,7 @@ h2#stories-section {
   line-height: var(--unnamed-line-spacing-42);
   letter-spacing: var(--unnamed-character-spacing-0-88);
   text-align: center;
+
 }
 
 h2#stories-section {
@@ -545,6 +546,11 @@ h2#stories-section {
   letter-spacing: 0;
   text-transform: uppercase;
   font-stretch: expanded;
+}
+
+h3.people-title.people-title--desminadoras {
+    margin-top: -37px !important;
+    padding-top: 37px !important;
 }
 
 h3.people-title.people-title--victims {
@@ -876,8 +882,8 @@ h3.people-title.people-title--victims {
   .article-copy--final,
   .graphic-section--history,
   .flourish-section,
-  .graphic-section--donut,
-  .people-section {
+  .graphic-section--donut
+  /*.people-section*/ {
     padding-top: 50px;
     margin: 0px 20px;
   }
