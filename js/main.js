@@ -1,4 +1,3 @@
-
 // Interacciones del mapa.
 /*
 const mapa = document.getElementById("map-stage");
@@ -15,25 +14,20 @@ mapa.addEventListener("click", function () {
 });*/
 
 document.addEventListener("DOMContentLoaded", () => {
-
   // REDES SOCIALES
 
   const pagina = document.querySelector(".site-main");
 
   if (pagina) {
-
-    const url = encodeURIComponent(
-      pagina.dataset.shareUrl || location.href
-    );
+    const url = encodeURIComponent(pagina.dataset.shareUrl || location.href);
 
     const enlaces = {
       facebook: `https://www.facebook.com/sharer/sharer.php?u=${url}`,
       twitter: `https://twitter.com/intent/tweet?url=${url}`,
-      whatsapp: `https://wa.me/?text=${url}`
+      whatsapp: `https://wa.me/?text=${url}`,
     };
 
-    pagina.querySelectorAll("[data-red]").forEach(link => {
-
+    pagina.querySelectorAll("[data-red]").forEach((link) => {
       const red = link.dataset.red;
 
       if (!enlaces[red]) {
@@ -43,19 +37,14 @@ document.addEventListener("DOMContentLoaded", () => {
       link.href = enlaces[red];
       link.target = "_blank";
       link.rel = "noopener noreferrer";
-
     });
-
   }
 
-
   // MAPA INTERACTIVO
-
 
   // DATOS DE VÍCTIMAS POR DEPARTAMENTO
 
   const datosDepartamentos = {
-
     TOL: 539,
     CUN: 141,
     VDC: 284,
@@ -87,10 +76,8 @@ document.addEventListener("DOMContentLoaded", () => {
     MAG: 46,
     MET: 1153,
     RIS: 22,
-    BOG: 30
-
+    BOG: 30,
   };
-
 
   // =========================================================
   // POSICIÓN MANUAL DE LOS NÚMEROS
@@ -106,7 +93,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // =========================================================
 
   const posicionesNumeros = {
-
     TOL: { x: 9, y: 19 },
     CUN: { x: -7, y: -26 },
     VDC: { x: 0, y: 18 },
@@ -133,20 +119,17 @@ document.addEventListener("DOMContentLoaded", () => {
     COR: { x: -4, y: 1 },
     GUI: { x: -8, y: -1 },
     GUV: { x: -16, y: -6 },
-    HUI: { x: 0, y: 2},
+    HUI: { x: 0, y: 2 },
     GUA: { x: -10, y: 10 },
     MAG: { x: -8, y: 10 },
     MET: { x: 6, y: -14 },
     RIS: { x: -10, y: -5 },
-    BOG: { x: 0, y: 0 }
-
+    BOG: { x: 0, y: 0 },
   };
-
 
   // NOMBRES DE LOS DEPARTAMENTOS
 
   const nombresDepartamentos = {
-
     TOL: "Tolima",
     CUN: "Cundinamarca",
     VDC: "Valle del Cauca",
@@ -178,196 +161,111 @@ document.addEventListener("DOMContentLoaded", () => {
     MAG: "Magdalena",
     MET: "Meta",
     RIS: "Risaralda",
-    BOG: "Bogotá D.C."
-
+    BOG: "Bogotá D.C.",
   };
-
 
   // CONTENEDOR DEL SVG
 
-  const contenedorMapa =
-    document.getElementById("map-svg-layer");
-
+  const contenedorMapa = document.getElementById("map-svg-layer");
 
   if (!contenedorMapa) {
-
-    console.error(
-      "No se encontró el elemento #map-svg-layer"
-    );
+    console.error("No se encontró el elemento #map-svg-layer");
 
     return;
-
   }
-
 
   // NAMESPACE SVG
 
-  const namespaceSVG =
-    "http://www.w3.org/2000/svg";
-
+  const namespaceSVG = "http://www.w3.org/2000/svg";
 
   // CARGAR SVG
 
   fetch("assets/VictimasDeptoCurvas.svg")
-
-    .then(respuesta => {
-
+    .then((respuesta) => {
       if (!respuesta.ok) {
-
         throw new Error(
-          `No fue posible cargar el SVG. Código: ${respuesta.status}`
+          `No fue posible cargar el SVG. Código: ${respuesta.status}`,
         );
-
       }
 
       return respuesta.text();
-
     })
 
-
-    .then(svgTexto => {
-
-
+    .then((svgTexto) => {
       // CONVERTIR ARCHIVO SVG A DOCUMENTO
 
-      const parser =
-        new DOMParser();
+      const parser = new DOMParser();
 
-
-      const documentoSVG =
-        parser.parseFromString(
-          svgTexto,
-          "image/svg+xml"
-        );
-
+      const documentoSVG = parser.parseFromString(svgTexto, "image/svg+xml");
 
       // COMPROBAR QUE EL SVG SEA VÁLIDO
 
-      const errorParser =
-        documentoSVG.querySelector("parsererror");
-
+      const errorParser = documentoSVG.querySelector("parsererror");
 
       if (errorParser) {
-
-        throw new Error(
-          "El archivo SVG no pudo interpretarse correctamente."
-        );
-
+        throw new Error("El archivo SVG no pudo interpretarse correctamente.");
       }
-
 
       // CAPA ORIGINAL DE LOS DEPARTAMENTOS
 
-      const layerDepartamentos =
-        documentoSVG.querySelector("#Layer_5");
-
+      const layerDepartamentos = documentoSVG.querySelector("#Layer_5");
 
       if (!layerDepartamentos) {
-
-        throw new Error(
-          "No se encontró #Layer_5 dentro del SVG."
-        );
-
+        throw new Error("No se encontró #Layer_5 dentro del SVG.");
       }
-
 
       // CREAR SVG NUEVO
 
-      const svgMapa =
-        document.createElementNS(
-          namespaceSVG,
-          "svg"
-        );
+      const svgMapa = document.createElementNS(namespaceSVG, "svg");
 
+      svgMapa.setAttribute("width", "100%");
 
-      svgMapa.setAttribute(
-        "width",
-        "100%"
-      );
+      svgMapa.setAttribute("height", "100%");
 
-
-      svgMapa.setAttribute(
-        "height",
-        "100%"
-      );
-
-
-      svgMapa.setAttribute(
-        "preserveAspectRatio",
-        "xMidYMid meet"
-      );
-
+      svgMapa.setAttribute("preserveAspectRatio", "xMidYMid meet");
 
       // CAPA DE DEPARTAMENTOS
       //
       // Las figuras son transparentes,
       // pero detectan el clic.
 
-      const capaDepartamentos =
-        document.createElementNS(
-          namespaceSVG,
-          "g"
-        );
+      const capaDepartamentos = document.createElementNS(namespaceSVG, "g");
 
+      capaDepartamentos.setAttribute("id", "departamentos-click");
 
-      capaDepartamentos.setAttribute(
-        "id",
-        "departamentos-click"
-      );
-
-
-      svgMapa.appendChild(
-        capaDepartamentos
-      );
-
+      svgMapa.appendChild(capaDepartamentos);
 
       // COPIAR LOS DEPARTAMENTOS
 
-      Object.keys(datosDepartamentos)
-        .forEach(idDepartamento => {
+      Object.keys(datosDepartamentos).forEach((idDepartamento) => {
+        const departamentoOriginal = layerDepartamentos.querySelector(
+          `#${idDepartamento}`,
+        );
 
-
-          const departamentoOriginal =
-            layerDepartamentos.querySelector(
-              `#${idDepartamento}`
-            );
-
-
-          if (!departamentoOriginal) {
-
-            console.warn(
-              `No se encontró el departamento ${idDepartamento} en el SVG.`
-            );
-
-            return;
-
-          }
-
-
-          // Clonamos la geometría original
-
-          const departamento =
-            departamentoOriginal.cloneNode(true);
-
-
-          // Clase para manejar estilos
-
-          departamento.classList.add(
-            "departamento-click"
+        if (!departamentoOriginal) {
+          console.warn(
+            `No se encontró el departamento ${idDepartamento} en el SVG.`,
           );
 
+          return;
+        }
 
-          // FIGURAS QUE FORMAN EL DEPARTAMENTO
+        // Clonamos la geometría original
 
-          const figuras =
-            departamento.querySelectorAll(
-              "path, polygon, rect, circle, ellipse"
-            );
+        const departamento = departamentoOriginal.cloneNode(true);
 
+        // Clase para manejar estilos
 
-          figuras.forEach(figura => {
+        departamento.classList.add("departamento-click");
 
-            /*
+        // FIGURAS QUE FORMAN EL DEPARTAMENTO
+
+        const figuras = departamento.querySelectorAll(
+          "path, polygon, rect, circle, ellipse",
+        );
+
+        figuras.forEach((figura) => {
+          /*
               La forma existe pero no se ve.
 
               IMPORTANTE:
@@ -375,289 +273,148 @@ document.addEventListener("DOMContentLoaded", () => {
               el clic dentro de la geometría.
             */
 
-            figura.style.fill =
-              "transparent";
+          figura.style.fill = "transparent";
 
-
-            /*
+          /*
               La zona clickeable corresponde a la
               forma real del departamento.
             */
 
-            figura.style.pointerEvents =
-              "fill";
+          figura.style.pointerEvents = "fill";
 
-
-            /*
+          /*
               Evita que el grosor del contorno cambie
               cuando el SVG aumenta o disminuye.
             */
 
-            figura.setAttribute(
-              "vector-effect",
-              "non-scaling-stroke"
-            );
+          figura.setAttribute("vector-effect", "non-scaling-stroke");
 
+          figura.setAttribute("stroke-linejoin", "round");
 
-            figura.setAttribute(
-              "stroke-linejoin",
-              "round"
-            );
+          figura.setAttribute("stroke-linecap", "round");
+        });
 
+        departamento.style.cursor = "pointer";
 
-            figura.setAttribute(
-              "stroke-linecap",
-              "round"
-            );
-
-          });
-
-
-          departamento.style.cursor =
-            "pointer";
-
-
-          /*
+        /*
             Quitamos el rectángulo de foco
             que dibuja el navegador.
           */
 
-          departamento.style.outline =
-            "none";
+        departamento.style.outline = "none";
 
-
-          capaDepartamentos.appendChild(
-            departamento
-          );
-
-
-        });
-
+        capaDepartamentos.appendChild(departamento);
+      });
 
       // CAPA PARA LOS NÚMEROS
 
-      const capaNumeros =
-        document.createElementNS(
-          namespaceSVG,
-          "g"
-        );
+      const capaNumeros = document.createElementNS(namespaceSVG, "g");
 
+      capaNumeros.setAttribute("id", "capa-numeros-interactivos");
 
-      capaNumeros.setAttribute(
-        "id",
-        "capa-numeros-interactivos"
-      );
-
-
-      svgMapa.appendChild(
-        capaNumeros
-      );
-
+      svgMapa.appendChild(capaNumeros);
 
       // INSERTAR SVG
 
       contenedorMapa.innerHTML = "";
 
-
-      contenedorMapa.appendChild(
-        svgMapa
-      );
-
+      contenedorMapa.appendChild(svgMapa);
 
       // AJUSTAR VIEWBOX AL MAPA
 
-      const cajaMapa =
-        capaDepartamentos.getBBox();
-
+      const cajaMapa = capaDepartamentos.getBBox();
 
       svgMapa.setAttribute(
         "viewBox",
-        `${cajaMapa.x} ${cajaMapa.y} ${cajaMapa.width} ${cajaMapa.height}`
+        `${cajaMapa.x} ${cajaMapa.y} ${cajaMapa.width} ${cajaMapa.height}`,
       );
-
 
       // OBTENER DEPARTAMENTOS
 
-      const departamentos =
-        Array.from(
-          capaDepartamentos.children
-        ).filter(elemento => {
-
-          return (
-            elemento.tagName.toLowerCase() === "g" &&
-            elemento.id
-          );
-
-        });
-
+      const departamentos = Array.from(capaDepartamentos.children).filter(
+        (elemento) => {
+          return elemento.tagName.toLowerCase() === "g" && elemento.id;
+        },
+      );
 
       // CONFIGURAR INTERACCIONES
 
-      departamentos.forEach(
-        departamento => {
+      departamentos.forEach((departamento) => {
+        const idDepartamento = departamento.id;
 
+        const nombreDepartamento =
+          nombresDepartamentos[idDepartamento] || idDepartamento;
 
-          const idDepartamento =
-            departamento.id;
+        // ACCESIBILIDAD
 
+        departamento.setAttribute("role", "button");
 
-          const nombreDepartamento =
-            nombresDepartamentos[idDepartamento]
-            || idDepartamento;
+        departamento.setAttribute("tabindex", "0");
 
+        departamento.setAttribute(
+          "aria-label",
+          `${nombreDepartamento}: mostrar número de víctimas`,
+        );
 
-          // ACCESIBILIDAD
+        // CLIC
 
-          departamento.setAttribute(
-            "role",
-            "button"
-          );
+        departamento.addEventListener("click", () => {
+          alternarNumero(departamento, idDepartamento, capaNumeros);
+        });
 
+        // TECLADO
 
-          departamento.setAttribute(
-            "tabindex",
-            "0"
-          );
+        departamento.addEventListener("keydown", (evento) => {
+          if (evento.key === "Enter" || evento.key === " ") {
+            evento.preventDefault();
 
-
-          departamento.setAttribute(
-            "aria-label",
-            `${nombreDepartamento}: mostrar número de víctimas`
-          );
-
-
-          // CLIC
-
-          departamento.addEventListener(
-            "click",
-            () => {
-
-              alternarNumero(
-                departamento,
-                idDepartamento,
-                capaNumeros
-              );
-
-            }
-          );
-
-
-          // TECLADO
-
-          departamento.addEventListener(
-            "keydown",
-            evento => {
-
-
-              if (
-                evento.key === "Enter" ||
-                evento.key === " "
-              ) {
-
-
-                evento.preventDefault();
-
-
-                alternarNumero(
-                  departamento,
-                  idDepartamento,
-                  capaNumeros
-                );
-
-
-              }
-
-
-            }
-          );
-
-
-        }
-      );
-
-
+            alternarNumero(departamento, idDepartamento, capaNumeros);
+          }
+        });
+      });
     })
-
 
     // ERROR
 
-    .catch(error => {
-
-      console.error(
-        "Error cargando el mapa SVG:",
-        error
-      );
-
+    .catch((error) => {
+      console.error("Error cargando el mapa SVG:", error);
     });
-
-
 
   // FUNCIÓN MOSTRAR / OCULTAR NÚMERO
 
-  function alternarNumero(
-    departamento,
-    idDepartamento,
-    capaNumeros
-  ) {
+  function alternarNumero(departamento, idDepartamento, capaNumeros) {
+    const idNumero = `numero-${idDepartamento}`;
 
-
-    const idNumero =
-      `numero-${idDepartamento}`;
-
-
-    const numeroExistente =
-      capaNumeros.querySelector(
-        `#${idNumero}`
-      );
-
+    const numeroExistente = capaNumeros.querySelector(`#${idNumero}`);
 
     // SI YA ESTÁ ACTIVO:
     // QUITAR NÚMERO Y CONTORNO
 
     if (numeroExistente) {
-
-
       numeroExistente.remove();
 
-
-      departamento.classList.remove(
-        "departamento-activo"
-      );
-
+      departamento.classList.remove("departamento-activo");
 
       const nombreDepartamento =
-        nombresDepartamentos[idDepartamento]
-        || idDepartamento;
-
+        nombresDepartamentos[idDepartamento] || idDepartamento;
 
       departamento.setAttribute(
         "aria-label",
-        `${nombreDepartamento}: mostrar número de víctimas`
+        `${nombreDepartamento}: mostrar número de víctimas`,
       );
 
-
       return;
-
     }
-
 
     // ACTIVAR CONTORNO DEL DEPARTAMENTO
 
-    departamento.classList.add(
-      "departamento-activo"
-    );
-
+    departamento.classList.add("departamento-activo");
 
     // POSICIÓN BASE DEL NÚMERO
 
-    const caja =
-      departamento.getBBox();
+    const caja = departamento.getBBox();
 
-
-    const posicion =
-      posicionesNumeros[idDepartamento]
-      || { x: 0, y: 0 };
-
+    const posicion = posicionesNumeros[idDepartamento] || { x: 0, y: 0 };
 
     /*
       La posición base sigue siendo calculada a partir
@@ -666,114 +423,59 @@ document.addEventListener("DOMContentLoaded", () => {
       Después se aplica el movimiento manual x / y.
     */
 
-    const posicionX =
-      caja.x +
-      (caja.width / 2) +
-      posicion.x;
+    const posicionX = caja.x + caja.width / 2 + posicion.x;
 
-
-    const posicionY =
-      caja.y +
-      (caja.height * 0.42) +
-      posicion.y;
-
+    const posicionY = caja.y + caja.height * 0.42 + posicion.y;
 
     // CREAR TEXTO
 
-    const texto =
-      document.createElementNS(
-        namespaceSVG,
-        "text"
-      );
-
+    const texto = document.createElementNS(namespaceSVG, "text");
 
     // Clase para controlar fuente, tamaño, color, etc. desde CSS
 
-    texto.classList.add(
-      "numero-departamento"
-    );
+    texto.classList.add("numero-departamento");
 
+    texto.setAttribute("id", idNumero);
 
-    texto.setAttribute(
-      "id",
-      idNumero
-    );
+    texto.setAttribute("x", posicionX);
 
+    texto.setAttribute("y", posicionY);
 
-    texto.setAttribute(
-      "x",
-      posicionX
-    );
+    texto.setAttribute("text-anchor", "middle");
 
-
-    texto.setAttribute(
-      "y",
-      posicionY
-    );
-
-
-    texto.setAttribute(
-      "text-anchor",
-      "middle"
-    );
-
-
-    texto.setAttribute(
-      "dominant-baseline",
-      "middle"
-    );
-
+    texto.setAttribute("dominant-baseline", "middle");
 
     /*
       Evita que el grosor del borde del número
       cambie al escalar el SVG.
     */
 
-    texto.setAttribute(
-      "vector-effect",
-      "non-scaling-stroke"
-    );
-
+    texto.setAttribute("vector-effect", "non-scaling-stroke");
 
     // El número no debe bloquear clics
 
-    texto.style.pointerEvents =
-      "none";
-
+    texto.style.pointerEvents = "none";
 
     // FORMATO DEL NÚMERO
 
-    texto.textContent =
-      new Intl.NumberFormat(
-        "es-CO"
-      ).format(
-        datosDepartamentos[idDepartamento]
-      );
-
+    texto.textContent = new Intl.NumberFormat("es-CO").format(
+      datosDepartamentos[idDepartamento],
+    );
 
     // AGREGAR NÚMERO
 
-    capaNumeros.appendChild(
-      texto
-    );
-
+    capaNumeros.appendChild(texto);
 
     // ACCESIBILIDAD
 
     const nombreDepartamento =
-      nombresDepartamentos[idDepartamento]
-      || idDepartamento;
-
+      nombresDepartamentos[idDepartamento] || idDepartamento;
 
     departamento.setAttribute(
       "aria-label",
-      `${nombreDepartamento}: ocultar número de víctimas`
+      `${nombreDepartamento}: ocultar número de víctimas`,
     );
-
-
   }
-
-
 });
 
 // Conozca las historias: pulsación mantenida en pantallas táctiles.
