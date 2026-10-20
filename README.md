@@ -11,7 +11,7 @@ El proyecto fue desarrollado a partir del diseño suministrado en Adobe XD, cons
 - JavaScript vanilla.
 - Adobe Fonts / Typekit para las tipografías definidas en el diseño.
 - Visualizaciones de Flourish integradas mediante `<iframe>`.
-- Recursos gráficos en formatos WebP, svg, png y jpg.
+- Recursos gráficos en formatos webP, svg, png y jpg.
 - Sin frameworks de frontend.
 
 ## Estructura
