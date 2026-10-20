@@ -11,7 +11,7 @@ El proyecto fue desarrollado a partir del diseño suministrado en Adobe XD, cons
 - JavaScript vanilla.
 - Adobe Fonts / Typekit para las tipografías definidas en el diseño.
 - Visualizaciones de Flourish integradas mediante `<iframe>`.
-- Recursos gráficos en formatos WebP y PNG.
+- Recursos gráficos en formatos WebP, svg, png y jpg.
 - Sin frameworks de frontend.
 
 ## Estructura
@@ -24,16 +24,24 @@ El proyecto fue desarrollado a partir del diseño suministrado en Adobe XD, cons
 │   │   ├── facebook.svg
 │   │   ├── twitter.svg
 │   │   └── whatsapp.svg
-│   ├── banner-inicio.webp
+│   ├── banner-inicio.jpg
+│   ├── banner-inicio-M.jpg
 │   ├── Grafico1_fondo-D.png
 │   ├── Grafico1_Mapa-D.png
 │   ├── Grafico1_cifras-D.png
+│   ├── Grafico1_Mapa-D-M.png
 │   ├── Grafico4-D.png
+│   ├── Grafico4-D-M.png
 │   ├── natalia-gonzalez.webp
+│   ├── NataliaBoton-M.png
 │   ├── yessica-espinosa.webp
+│   ├── YessicaBoton-M.png
 │   ├── dewadhy-zuliem-melo.webp
+│   ├── DewadhyBoton-M.png
 │   ├── alberto-ortiz.webp
+│   ├── AlbertoBoton-M.png
 │   ├── gundiralbo-morales.webp
+│   ├── GundiralboBoton-M.png
 │   └── VictimasDeptoCurvas.svg
 ├── css/
 │   └── styles.css
@@ -51,7 +59,7 @@ El histórico de víctimas de minas antipersonal se compone actualmente mediante
 
 1. `Grafico1_fondo-D.png`: base general del gráfico.
 2. `Grafico1_Mapa-D.png`: mapa de Colombia por departamentos.
-3. `Grafico1_cifras-D.png`: cifras de víctimas por departamento. (aparece al dar click sobre la capa #2.)
+3. `VictimasDeptoCurvas.svg`: contiene las cifras de víctimas por departamento. (aparecen al dar click.)
 
 Las visualizaciones **Víctimas civiles y fuerza pública** y **Víctimas civiles por género** se integran desde Flourish mediante `iframe`.
 
